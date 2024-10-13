@@ -14,7 +14,7 @@ const Logo = () => {
 
       <h1
         className={cn(
-          "text-white origin-left font-medium text-xl whitespace-nowrap"
+          "text-white origin-left font-medium text-xl whitespace-nowrap overflow-hidden"
         )}
       >
         To Do App

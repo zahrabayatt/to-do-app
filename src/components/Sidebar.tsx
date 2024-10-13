@@ -4,6 +4,7 @@ import Logo from "./Logo";
 import ToggleButton from "./ToggleButton";
 import Divider from "./Divider";
 import NavigationMenu from "./NavigationMenu";
+import ColorModeSwitch from "./ColorModeSwitch";
 
 const Sidebar = () => {
   const [isExtend, setExtend] = useState(true);
@@ -19,7 +20,9 @@ const Sidebar = () => {
       <Logo />
       <NavigationMenu />
       <Divider />
-      <p className="text-white">Sidebar</p>
+      <div className="absolute -bottom-0 left-0 w-full scale-[0.8]">
+        <ColorModeSwitch isExtend={isExtend} />
+      </div>
     </aside>
   );
 };
