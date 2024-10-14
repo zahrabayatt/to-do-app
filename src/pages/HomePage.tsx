@@ -1,5 +1,13 @@
+import TaskForm from "../components/TaskForm";
+import TaskList from "../components/TaskList";
+
 const HomePage = () => {
-  return <div className="dark:bg-gray-700 h-full">HomePage</div>;
+  return (
+    <>
+      <TaskForm />
+      <TaskList />
+    </>
+  );
 };
 
 export default HomePage;

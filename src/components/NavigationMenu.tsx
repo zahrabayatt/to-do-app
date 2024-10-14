@@ -1,14 +1,16 @@
 import { useState } from "react";
-import { FaHome, FaTasks, FaUser } from "react-icons/fa";
+import { FaTasks } from "react-icons/fa";
+import { AiOutlineDashboard } from "react-icons/ai";
+import { BiCategoryAlt } from "react-icons/bi";
 import NavigationLink from "./NavigationLink";
 
 const NavigationMenu = () => {
   const [selectedItem, setSelectedItem] = useState<string>("Home");
 
   const menuItems = [
-    { text: "Home", to: "/", icon: FaHome },
-    { text: "Tasks", to: "/tasks", icon: FaTasks },
-    { text: "Profile", to: "/profile", icon: FaUser },
+    { text: "All Tasks", to: "/", icon: FaTasks },
+    { text: "Categories", to: "/categories", icon: BiCategoryAlt },
+    { text: "Dashboard", to: "/dashboard", icon: AiOutlineDashboard },
   ];
 
   const handleMenuItemClick = (to: string) => {
