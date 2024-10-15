@@ -9,7 +9,7 @@ const TasksPage = () => {
   useSelectCategory(categoryId ?? null);
 
   return (
-    <div className="min-h-screen w-full md:px-5 md:py-4 bg-gray-100 dark:bg-gray-800">
+    <div className="min-h-screen w-full md:px-5 md:py-4">
       <div className="container mx-auto flex flex-col gap-2 h-full w-full p-4">
         <TaskFilter />
         <TaskList />
