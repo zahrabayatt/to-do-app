@@ -11,7 +11,7 @@ const TaskListItem = ({ task }: TaskListItemProps) => {
   const [isEditMode, setEditMode] = useState(false);
 
   return (
-    <li>
+    <li className="m-3">
       {isEditMode ? (
         <TaskEditMode task={task} onRestEdit={() => setEditMode(false)} />
       ) : (

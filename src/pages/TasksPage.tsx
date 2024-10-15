@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import Divider from "../components/Divider";
 import TaskFilter from "../components/task/TaskFilter";
 import TaskForm from "../components/task/TaskForm";
 import TaskList from "../components/task/TaskList";
@@ -10,13 +9,13 @@ const TasksPage = () => {
   useSelectCategory(categoryId ?? null);
 
   return (
-    <>
+    <div className="min-h-screen flex flex-col px-5 py-4 bg-gray-100 dark:bg-gray-800">
+      <div className="container mx-auto flex-grow h-full">
+        <TaskFilter />
+        <TaskList />
+      </div>
       <TaskForm />
-      <Divider />
-      <TaskFilter />
-      <Divider />
-      <TaskList />
-    </>
+    </div>
   );
 };
 
