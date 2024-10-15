@@ -1,7 +1,6 @@
 import Category from "../types/Category";
 import { v4 as uuidv4 } from "uuid";
 import { create } from "zustand";
-import useTaskStore from "./useTaskStore";
 
 interface CategoryStore {
   categories: Category[];
@@ -24,8 +23,6 @@ const useCategoryStore = create<CategoryStore>((set) => {
         ),
       })),
     deleteCategory: (categoryId) => {
-      const { clearTasksInCategory } = useTaskStore.getState();
-      clearTasksInCategory(categoryId);
       set((state) => ({
         categories: state.categories.filter((cat) => cat.id !== categoryId),
       }));

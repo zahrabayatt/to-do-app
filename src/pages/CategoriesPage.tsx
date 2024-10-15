@@ -1,5 +1,5 @@
-import CategoryForm from "../components/CategoryForm";
-import CategoryList from "../components/CategoryList";
+import CategoryForm from "../components/category/CategoryForm";
+import CategoryList from "../components/category/CategoryList";
 
 const CategoriesPage = () => {
   return (

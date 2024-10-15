@@ -1,3 +1,5 @@
+import { cn } from "../helpers/utils";
+
 interface Props {
   color?: string;
   thickness?: string;
@@ -13,7 +15,7 @@ const Divider = ({
 }: Props) => {
   return (
     <div
-      className={`${color} ${thickness} ${width} ${margin}`}
+      className={cn(color, thickness, width, margin)}
       aria-hidden="true"
     ></div>
   );

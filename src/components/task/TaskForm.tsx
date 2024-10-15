@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import useTaskStore from "../store/useTaskStore";
-import useCategoryStore from "../store/useCategoryStore";
+import useTaskStore from "../../store/useTaskStore";
+import useCategoryStore from "../../store/useCategoryStore";
 
 const TaskForm = () => {
-  const { addTask } = useTaskStore();
-  const { categories } = useCategoryStore();
+  const addTask = useTaskStore((s) => s.addTask);
+  const categories = useCategoryStore((s) => s.categories);
   const [taskName, setTaskName] = useState("");
   const [categoryId, setCategoryId] = useState<string | null>(null);
 

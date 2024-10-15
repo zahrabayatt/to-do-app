@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Task from "../types/Task";
-import useTaskStore from "../store/useTaskStore";
+import Task from "../../types/Task";
+import useTaskStore from "../../store/useTaskStore";
 
 interface Props {
   task: Task;
@@ -8,15 +8,15 @@ interface Props {
 }
 
 const TaskEditMode = ({ task, onRestEdit }: Props) => {
-  const { editTask } = useTaskStore();
+  const editTask = useTaskStore((s) => s.editTask);
   const [newTaskName, setNewTaskName] = useState(task.name);
 
-  const saveEdit = () => {
+  const handleSaveEdit = () => {
     editTask(task.id, newTaskName);
-    resetEdit();
+    handleResetEdit();
   };
 
-  const resetEdit = () => {
+  const handleResetEdit = () => {
     onRestEdit();
     setNewTaskName("");
   };
@@ -28,8 +28,8 @@ const TaskEditMode = ({ task, onRestEdit }: Props) => {
         value={newTaskName}
         onChange={(e) => setNewTaskName(e.target.value)}
       />
-      <button onClick={saveEdit}>Save</button>
-      <button onClick={resetEdit}>Cancel</button>
+      <button onClick={handleSaveEdit}>Save</button>
+      <button onClick={handleResetEdit}>Cancel</button>
     </>
   );
 };

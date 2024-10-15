@@ -1,12 +1,12 @@
-import useTaskStore from "../store/useTaskStore";
-import Task from "../types/Task";
+import useTaskStore from "../../store/useTaskStore";
+import Task from "../../types/Task";
 
 interface Props {
   task: Task;
-  OnEdit: (id: string) => void;
+  onEdit: () => void;
 }
 
-const TaskDisplayMode = ({ task, OnEdit }: Props) => {
+const TaskDisplayMode = ({ task, onEdit }: Props) => {
   const { deleteTask, toggleCompletion, toggleImportance } = useTaskStore();
 
   return (
@@ -22,7 +22,7 @@ const TaskDisplayMode = ({ task, OnEdit }: Props) => {
       <button onClick={() => toggleImportance(task.id)}>
         {task.isImportant ? "Unmark" : "Mark Important"}
       </button>
-      <button onClick={() => OnEdit(task.id)}>Edit</button>
+      <button onClick={() => onEdit()}>Edit</button>
       <button onClick={() => deleteTask(task.id)}>Delete</button>
     </>
   );

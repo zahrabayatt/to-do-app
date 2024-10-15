@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import useCategoryStore from "../store/useCategoryStore";
+import useCategoryStore from "../../store/useCategoryStore";
 
 const CategoryForm: React.FC = () => {
-  const { addCategory } = useCategoryStore();
+  const addCategory = useCategoryStore((s) => s.addCategory);
   const [categoryName, setCategoryName] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {

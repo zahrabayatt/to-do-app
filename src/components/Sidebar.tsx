@@ -5,6 +5,7 @@ import ToggleButton from "./ToggleButton";
 import Divider from "./Divider";
 import NavigationMenu from "./NavigationMenu";
 import ColorModeSwitch from "./ColorModeSwitch";
+import CategorySelector from "./category/CategorySelector";
 
 const Sidebar = () => {
   const [isExtend, setExtend] = useState(true);
@@ -20,6 +21,7 @@ const Sidebar = () => {
       <Logo />
       <NavigationMenu />
       <Divider />
+      <CategorySelector />
       <div className="absolute -bottom-0 left-0 w-full scale-[0.8]">
         <ColorModeSwitch isExtend={isExtend} />
       </div>
