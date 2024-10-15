@@ -1,25 +1,13 @@
-import { useEffect, useState } from "react";
 import { FaSun, FaMoon } from "react-icons/fa";
 import { cn } from "../utils";
+import useTheme from "../hooks/useTheme";
 
 interface Props {
   isExtend?: boolean;
 }
 
 const ColorModeSwitch = ({ isExtend = true }: Props) => {
-  const [isDarkMode, setIsDarkMode] = useState(() => {
-    const savedMode = localStorage.getItem("colorMode");
-    return savedMode
-      ? savedMode === "dark"
-      : window.matchMedia("(prefers-color-scheme: dark)").matches;
-  });
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", isDarkMode);
-    localStorage.setItem("colorMode", isDarkMode ? "dark" : "light");
-  }, [isDarkMode]);
-
-  const toggleMode = () => setIsDarkMode((prev) => !prev);
+  const { isDarkMode, toggleTheme } = useTheme();
 
   return (
     <div className="flex items-center justify-center p-4 w-full max-w-md mx-auto">
@@ -29,7 +17,7 @@ const ColorModeSwitch = ({ isExtend = true }: Props) => {
           isDarkMode ? "bg-gray-700" : "bg-slate-50",
           isExtend ? "w-full" : "w-20"
         )}
-        onClick={toggleMode}
+        onClick={toggleTheme}
       >
         <ToggleIcons isDarkMode={isDarkMode} isExtend={isExtend} />
         {isExtend && <ToggleIndicator isDarkMode={isDarkMode} />}
