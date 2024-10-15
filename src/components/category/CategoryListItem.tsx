@@ -11,7 +11,7 @@ const CategoryListItem = ({ category }: Props) => {
   const [isEditMode, setEditMode] = useState(false);
 
   return (
-    <li>
+    <li className="m-3">
       {isEditMode ? (
         <CategoryEditMode
           category={category}

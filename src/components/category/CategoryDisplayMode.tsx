@@ -1,3 +1,5 @@
+import { FaRegEdit } from "react-icons/fa";
+import { MdDeleteForever } from "react-icons/md";
 import useDeleteCategoryWithTasks from "../../hooks/useDeleteCategoryWithTasks";
 import Category from "../../types/Category";
 
@@ -10,13 +12,18 @@ const CategoryDisplayMode = ({ category, onEdit }: Props) => {
   const deleteCategoryWithTasks = useDeleteCategoryWithTasks();
 
   return (
-    <>
-      <span>{category.name}</span>
-      <button onClick={onEdit}>Edit</button>
-      <button onClick={() => deleteCategoryWithTasks(category.id)}>
-        Delete
-      </button>
-    </>
+    <div className="flex items-center justify-between p-2 bg-gray-200 dark:bg-gray-800 rounded-lg shadow-sm hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+      <span className="text-sm overflow-auto mr-1 text-gray-800 dark:text-gray-200">
+        {category.name}
+      </span>
+      <div className="flex space-x-2">
+        <FaRegEdit onClick={onEdit} className="dark:text-gray-50" />
+        <MdDeleteForever
+          onClick={() => deleteCategoryWithTasks(category.id)}
+          className="text-red-600"
+        />
+      </div>
+    </div>
   );
 };
 

@@ -26,7 +26,7 @@ const TaskForm = () => {
         onChange={(e) => setTaskName(e.target.value)}
         placeholder="Task name"
         required
-        className="text-sm w-full border border-gray-300 rounded p-2 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+        className="text-sm w-full border border-gray-300 rounded p-2 outline-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:outline-gray-500"
       />
       <select
         onChange={(e) => setCategoryId(e.target.value)}
