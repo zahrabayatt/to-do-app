@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { cn } from "../helpers/utils";
+import { cn } from "../utils";
 
 const Logo = () => {
   return (

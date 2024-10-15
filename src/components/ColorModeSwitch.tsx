@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaSun, FaMoon } from "react-icons/fa";
-import { cn } from "../helpers/utils";
+import { cn } from "../utils";
 
 interface Props {
   isExtend?: boolean;

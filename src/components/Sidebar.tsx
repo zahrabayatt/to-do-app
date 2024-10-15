@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { cn } from "../helpers/utils";
+import { cn } from "../utils";
 import Logo from "./Logo";
 import ToggleButton from "./ToggleButton";
 import Divider from "./Divider";

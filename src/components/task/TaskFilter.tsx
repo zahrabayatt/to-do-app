@@ -1,6 +1,7 @@
-import { capitalize, cn } from "../../helpers/utils";
+import { cn } from "../../utils";
 import useTaskQueryStore from "../../store/useTaskQueryStore";
 import TaskFilterType from "../../types/TaskFilterType";
+import { capitalize } from "../../utils/formatting";
 
 const TaskFilter = () => {
   const setFilter = useTaskQueryStore((s) => s.setFilter);

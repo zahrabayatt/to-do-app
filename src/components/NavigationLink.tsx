@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { cn } from "../helpers/utils";
+import { cn } from "../utils";
 
 interface Prop {
   icon?: React.ElementType;
