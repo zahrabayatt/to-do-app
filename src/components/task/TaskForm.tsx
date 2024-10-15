@@ -18,7 +18,7 @@ const TaskForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex w-2/3 mx-auto space-x-2 p-4 bg-white rounded-lg shadow-md dark:bg-gray-700"
+      className="flex w-4/5 max-md:w-full p-4 max-md:flex-col mx-auto gap-x-2 max-md:gap-y-2  bg-white rounded-lg shadow-md dark:bg-gray-700"
     >
       <input
         type="text"
@@ -26,12 +26,12 @@ const TaskForm = () => {
         onChange={(e) => setTaskName(e.target.value)}
         placeholder="Task name"
         required
-        className="w-full border border-gray-300 rounded p-2 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+        className="text-sm w-full border border-gray-300 rounded p-2 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
       />
       <select
         onChange={(e) => setCategoryId(e.target.value)}
         value={categoryId || ""}
-        className="border border-gray-300 rounded p-2 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+        className="border border-gray-300 text-sm rounded p-2 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
       >
         <option value="">Select Category</option>
         {categories.map((cat) => (
@@ -42,7 +42,7 @@ const TaskForm = () => {
       </select>
       <button
         type="submit"
-        className="bg-blue-500 text-white text-nowrap rounded px-4 py-2 hover:bg-blue-600 transition dark:bg-blue-600 dark:hover:bg-blue-700"
+        className="bg-blue-500 text-sm text-white text-nowrap rounded px-4 py-2 hover:bg-blue-600 transition dark:bg-blue-600 dark:hover:bg-blue-700"
       >
         Add Task
       </button>

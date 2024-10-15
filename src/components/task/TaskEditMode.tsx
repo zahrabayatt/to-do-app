@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Task from "../../types/Task";
 import useTaskStore from "../../store/useTaskStore";
+import { MdDone } from "react-icons/md";
+import { FaXmark } from "react-icons/fa6";
 
 interface Props {
   task: Task;
@@ -22,25 +24,17 @@ const TaskEditMode = ({ task, onRestEdit }: Props) => {
   };
 
   return (
-    <div className="flex items-center space-x-2 p-2 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-sm">
+    <div className="flex items-center gap-x-2 p-2 bg-gray-200 dark:bg-gray-800 rounded-lg shadow-sm">
       <input
         type="text"
         value={newTaskName}
         onChange={(e) => setNewTaskName(e.target.value)}
-        className="border border-gray-300 rounded p-2 flex-grow dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+        autoFocus
+        className="w-full bg-transparent dark:text-white text-sm outline-none overflow-scroll"
       />
-      <button
-        onClick={handleSaveEdit}
-        className="bg-blue-500 text-white rounded px-4 py-2 hover:bg-blue-600 transition dark:bg-blue-600 dark:hover:bg-blue-700"
-      >
-        Save
-      </button>
-      <button
-        onClick={handleResetEdit}
-        className="bg-red-500 text-white rounded px-4 py-2 hover:bg-red-600 transition dark:bg-red-600 dark:hover:bg-red-700"
-      >
-        Cancel
-      </button>
+
+      <MdDone onClick={handleSaveEdit} className="text-green-500" size={18} />
+      <FaXmark onClick={handleResetEdit} className="text-red-500" size={13} />
     </div>
   );
 };

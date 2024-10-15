@@ -13,8 +13,8 @@ const Sidebar = () => {
   return (
     <aside
       className={cn(
-        "bg-dark-purple h-screen p-5 pt-8 absolute duration-300 transition-width sm:relative",
-        isExtend ? "w-72" : "w-20"
+        "bg-dark-purple h-screen p-5 absolute duration-300 transition-width sm:relative",
+        isExtend ? "w-72" : "w-20 "
       )}
     >
       <ToggleButton isToggle={isExtend} setToggle={setExtend} />

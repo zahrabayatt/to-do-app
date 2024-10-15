@@ -9,11 +9,11 @@ const TaskFilter = () => {
   const filters: TaskFilterType[] = ["completed", "important"];
 
   return (
-    <div className="flex space-x-4 mb-4">
+    <div className="flex gap-2">
       <button
         key="all"
         className={cn(
-          "px-4 py-2 rounded",
+          "p-1.5 rounded text-sm",
           !filterBy
             ? "bg-blue-500 text-white"
             : "bg-gray-300 text-black dark:bg-gray-600 dark:text-white"
@@ -26,7 +26,7 @@ const TaskFilter = () => {
         <button
           key={filter}
           className={cn(
-            "px-4 py-2 rounded",
+            "p-1.5 rounded text-sm",
             filterBy === filter
               ? "bg-blue-500 text-white"
               : "bg-gray-300 text-black dark:bg-gray-600 dark:text-white"
