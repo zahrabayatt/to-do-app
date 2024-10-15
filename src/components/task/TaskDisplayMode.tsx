@@ -16,7 +16,7 @@ const TaskDisplayMode = ({ task, onEdit }: Props) => {
     <div className="flex items-center justify-between p-2 bg-gray-200 dark:bg-gray-800 rounded-lg shadow-sm hover:bg-gray-300 dark:hover:bg-gray-600 transition">
       <span
         className={cn(
-          "text-sm overflow-scroll mr-1",
+          "text-sm overflow-auto mr-1",
           task.isCompleted
             ? "line-through text-gray-400"
             : "no-underline text-gray-800 dark:text-gray-200"
