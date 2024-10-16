@@ -29,12 +29,13 @@ const TaskDisplayMode = ({ task, onEdit }: Props) => {
           type="checkbox"
           onChange={() => toggleCompletion(task.id)}
           className="text-blue-400"
+          checked={task.isCompleted}
         ></input>
         <FaStar
           onClick={() => toggleImportance(task.id)}
           className={cn(
-            "dark:text-gray-400",
-            task.isImportant && "dark:text-red-300 text-red-300"
+            "text-gray-400",
+            task.isImportant && "text-red-300 dark:text-red-300"
           )}
         />
         <FaRegEdit onClick={onEdit} className="dark:text-gray-50" />

@@ -3,9 +3,11 @@ import TaskFilter from "../components/task/TaskFilter";
 import TaskForm from "../components/task/TaskForm";
 import TaskList from "../components/task/TaskList";
 import useSelectCategory from "../hooks/useSelectCategory";
+import useValidateCategoryId from "../hooks/useValidateCategoryId";
 
 const TasksPage = () => {
   const { categoryId } = useParams<{ categoryId: string | undefined }>();
+  useValidateCategoryId(categoryId ?? null);
   useSelectCategory(categoryId ?? null);
 
   return (
