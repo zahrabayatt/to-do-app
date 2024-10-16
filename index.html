@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/to-do-app/logo.webp" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      const colorMode = localStorage.getItem("colorMode");
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+
+      document.documentElement.classList.toggle(
+        "dark",
+        colorMode === "dark" || (!colorMode && prefersDark)
+      );
+    </script>
+    <title>To Do App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,100&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="/to-do-app/assets/index-5PDejskQ.js"></script>
+    <link rel="stylesheet" crossorigin href="/to-do-app/assets/index-BUWd40Kp.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
