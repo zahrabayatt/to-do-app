@@ -1,6 +1,11 @@
 import { create } from "zustand";
 import Task from "../types/Task";
 import { v4 as uuidv4 } from "uuid";
+import {
+  getLocalStorageItem,
+  setLocalStorageItem,
+} from "../utils/localStorage";
+import { TASKS_STORAGE_KEY } from "../constants/keys";
 
 interface TaskStore {
   tasks: Task[];
@@ -12,9 +17,9 @@ interface TaskStore {
   clearTasksInCategory: (categoryId: string) => void;
 }
 
-const useTaskStore = create<TaskStore>((set) => ({
-  tasks: [],
-  addTask: (name, categoryId) =>
+const useTaskStore = create<TaskStore>((set, get) => ({
+  tasks: getLocalStorageItem<Task[]>(TASKS_STORAGE_KEY) || [],
+  addTask: (name, categoryId) => {
     set((state) => ({
       tasks: [
         ...state.tasks,
@@ -27,33 +32,51 @@ const useTaskStore = create<TaskStore>((set) => ({
           categoryId,
         },
       ],
-    })),
-  editTask: (taskId, newName) =>
+    }));
+
+    setLocalStorageItem(TASKS_STORAGE_KEY, get().tasks);
+  },
+  editTask: (taskId, newName) => {
     set((state) => ({
       tasks: state.tasks.map((task) =>
         task.id === taskId ? { ...task, name: newName } : task
       ),
-    })),
-  deleteTask: (taskId) =>
+    }));
+
+    setLocalStorageItem(TASKS_STORAGE_KEY, get().tasks);
+  },
+  deleteTask: (taskId) => {
     set((state) => ({
       tasks: state.tasks.filter((task) => task.id !== taskId),
-    })),
-  toggleCompletion: (taskId) =>
+    }));
+
+    setLocalStorageItem(TASKS_STORAGE_KEY, get().tasks);
+  },
+  toggleCompletion: (taskId) => {
     set((state) => ({
       tasks: state.tasks.map((task) =>
         task.id === taskId ? { ...task, isCompleted: !task.isCompleted } : task
       ),
-    })),
-  toggleImportance: (taskId) =>
+    }));
+
+    setLocalStorageItem(TASKS_STORAGE_KEY, get().tasks);
+  },
+  toggleImportance: (taskId) => {
     set((state) => ({
       tasks: state.tasks.map((task) =>
         task.id === taskId ? { ...task, isImportant: !task.isImportant } : task
       ),
-    })),
-  clearTasksInCategory: (categoryId) =>
+    }));
+
+    setLocalStorageItem(TASKS_STORAGE_KEY, get().tasks);
+  },
+  clearTasksInCategory: (categoryId) => {
     set((state) => ({
       tasks: state.tasks.filter((task) => task.categoryId !== categoryId),
-    })),
+    }));
+
+    setLocalStorageItem(TASKS_STORAGE_KEY, get().tasks);
+  },
 }));
 
 export default useTaskStore;

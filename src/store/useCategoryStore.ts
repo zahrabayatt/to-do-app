@@ -1,6 +1,11 @@
 import Category from "../types/Category";
 import { v4 as uuidv4 } from "uuid";
 import { create } from "zustand";
+import {
+  getLocalStorageItem,
+  setLocalStorageItem,
+} from "../utils/localStorage";
+import { CATEGORIES_STORAGE_KEY } from "../constants/keys";
 
 interface CategoryStore {
   categories: Category[];
@@ -9,23 +14,31 @@ interface CategoryStore {
   deleteCategory: (categoryId: string) => void;
 }
 
-const useCategoryStore = create<CategoryStore>((set) => {
+const useCategoryStore = create<CategoryStore>((set, get) => {
   return {
-    categories: [],
-    addCategory: (name) =>
+    categories: getLocalStorageItem<Category[]>(CATEGORIES_STORAGE_KEY) || [],
+    addCategory: (name) => {
       set((state) => ({
         categories: [...state.categories, { id: uuidv4(), name, tasks: [] }],
-      })),
-    editCategory: (categoryId, newName) =>
+      }));
+
+      setLocalStorageItem(CATEGORIES_STORAGE_KEY, get().categories);
+    },
+    editCategory: (categoryId, newName) => {
       set((state) => ({
         categories: state.categories.map((cat) =>
           cat.id === categoryId ? { ...cat, name: newName } : cat
         ),
-      })),
+      }));
+
+      setLocalStorageItem(CATEGORIES_STORAGE_KEY, get().categories);
+    },
     deleteCategory: (categoryId) => {
       set((state) => ({
         categories: state.categories.filter((cat) => cat.id !== categoryId),
       }));
+
+      setLocalStorageItem(CATEGORIES_STORAGE_KEY, get().categories);
     },
   };
 });
