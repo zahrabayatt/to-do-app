@@ -8,7 +8,7 @@ import ColorModeSwitch from "./ColorModeSwitch";
 import CategorySelector from "./category/CategorySelector";
 
 const Sidebar = () => {
-  const [isExtend, setExtend] = useState(true);
+  const [isExtend, setExtend] = useState(window.innerWidth >= 640);
 
   return (
     <aside
