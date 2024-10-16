@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import useTaskStore from "../../store/useTaskStore";
 import useCategoryStore from "../../store/useCategoryStore";
+import useTaskQueryStore from "../../store/useTaskQueryStore";
 
 const TaskForm = () => {
   const addTask = useTaskStore((s) => s.addTask);
+  const categoryId = useTaskQueryStore((s) => s.taskQuery.categoryId);
   const categories = useCategoryStore((s) => s.categories);
   const [taskName, setTaskName] = useState("");
-  const [categoryId, setCategoryId] = useState<string | null>(null);
+  const [newCategoryId, setNewCategoryId] = useState<string | null>(
+    categoryId ?? null
+  );
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    addTask(taskName, categoryId);
+    addTask(taskName, newCategoryId);
     setTaskName("");
-    setCategoryId(null);
+    setNewCategoryId(null);
   };
 
   return (
@@ -28,18 +32,20 @@ const TaskForm = () => {
         required
         className="text-sm w-full border border-gray-300 rounded p-2 outline-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:outline-gray-500"
       />
-      <select
-        onChange={(e) => setCategoryId(e.target.value)}
-        value={categoryId || ""}
-        className="border border-gray-300 text-sm rounded p-2 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
-      >
-        <option value="">Select Category</option>
-        {categories.map((cat) => (
-          <option key={cat.id} value={cat.id}>
-            {cat.name}
-          </option>
-        ))}
-      </select>
+      {!categoryId && (
+        <select
+          onChange={(e) => setNewCategoryId(e.target.value)}
+          value={newCategoryId || ""}
+          className="border border-gray-300 text-sm rounded p-2 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+        >
+          <option value="">Select Category</option>
+          {categories.map((cat) => (
+            <option key={cat.id} value={cat.id}>
+              {cat.name}
+            </option>
+          ))}
+        </select>
+      )}
       <button
         type="submit"
         className="bg-blue-500 text-sm text-white text-nowrap rounded px-4 py-2 hover:bg-blue-600 transition dark:bg-blue-600 dark:hover:bg-blue-700"

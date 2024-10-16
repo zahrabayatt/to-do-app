@@ -9,7 +9,7 @@ const NavigationMenu = () => {
   ];
 
   return (
-    <nav className="flex flex-col gap-y-2 my-8">
+    <nav className="flex flex-col gap-y-2 my-8 pr-2">
       {menuItems.map((item) => (
         <NavigationLink
           key={item.to}

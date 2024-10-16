@@ -13,7 +13,7 @@ const Sidebar = () => {
   return (
     <aside
       className={cn(
-        "flex flex-col bg-dark-purple h-full p-5 absolute duration-300 transition-width sm:relative",
+        "flex flex-col bg-dark-purple h-full p-4 absolute duration-300 transition-width sm:relative",
         isExtend ? "w-72" : "w-20 "
       )}
     >
