@@ -13,10 +13,10 @@ const TaskFilter = () => {
       <button
         key="all"
         className={cn(
-          "p-1.5 rounded text-sm",
+          "rounded p-1.5 text-sm",
           !filterBy
             ? "bg-blue-500 text-white"
-            : "bg-gray-300 text-black dark:bg-gray-600 dark:text-white"
+            : "bg-gray-300 text-black dark:bg-gray-600 dark:text-white",
         )}
         onClick={() => setFilter(null)}
       >
@@ -26,10 +26,10 @@ const TaskFilter = () => {
         <button
           key={filter}
           className={cn(
-            "p-1.5 rounded text-sm",
+            "rounded p-1.5 text-sm",
             filterBy === filter
               ? "bg-blue-500 text-white"
-              : "bg-gray-300 text-black dark:bg-gray-600 dark:text-white"
+              : "bg-gray-300 text-black dark:bg-gray-600 dark:text-white",
           )}
           onClick={() => setFilter(filter)}
         >

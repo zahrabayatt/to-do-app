@@ -13,13 +13,13 @@ const TaskDisplayMode = ({ task, onEdit }: Props) => {
   const { deleteTask, toggleCompletion, toggleImportance } = useTaskStore();
 
   return (
-    <div className="flex items-center justify-between p-2 bg-gray-200 dark:bg-gray-800 rounded-lg shadow-sm hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+    <div className="flex items-center justify-between rounded-lg bg-gray-200 p-2 shadow-sm transition hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-600">
       <span
         className={cn(
-          "text-sm overflow-auto mr-1",
+          "mr-1 overflow-auto text-sm",
           task.isCompleted
-            ? "line-through text-gray-400"
-            : "no-underline text-gray-800 dark:text-gray-200"
+            ? "text-gray-400 line-through"
+            : "text-gray-800 no-underline dark:text-gray-200",
         )}
       >
         {task.name}
@@ -35,7 +35,7 @@ const TaskDisplayMode = ({ task, onEdit }: Props) => {
           onClick={() => toggleImportance(task.id)}
           className={cn(
             "text-gray-400",
-            task.isImportant && "text-red-300 dark:text-red-300"
+            task.isImportant && "text-red-300 dark:text-red-300",
           )}
         />
         <FaRegEdit onClick={onEdit} className="dark:text-gray-50" />

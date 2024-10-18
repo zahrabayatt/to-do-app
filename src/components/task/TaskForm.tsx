@@ -9,7 +9,7 @@ const TaskForm = () => {
   const categories = useCategoryStore((s) => s.categories);
   const [taskName, setTaskName] = useState("");
   const [newCategoryId, setNewCategoryId] = useState<string | null>(
-    categoryId ?? null
+    categoryId ?? null,
   );
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -22,7 +22,7 @@ const TaskForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex w-4/5 max-md:w-full p-4 max-md:flex-col mx-auto gap-x-2 max-md:gap-y-2  bg-white rounded-lg shadow-md dark:bg-gray-700"
+      className="mx-auto flex w-4/5 gap-x-2 rounded-lg bg-white p-4 shadow-md max-md:w-full max-md:flex-col max-md:gap-y-2 dark:bg-gray-700"
     >
       <input
         type="text"
@@ -30,13 +30,13 @@ const TaskForm = () => {
         onChange={(e) => setTaskName(e.target.value)}
         placeholder="Task name"
         required
-        className="text-sm w-full border border-gray-300 rounded p-2 outline-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:outline-gray-500"
+        className="w-full rounded border border-gray-300 p-2 text-sm outline-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:outline-gray-500"
       />
       {!categoryId && (
         <select
           onChange={(e) => setNewCategoryId(e.target.value)}
           value={newCategoryId || ""}
-          className="border border-gray-300 text-sm rounded p-2 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+          className="rounded border border-gray-300 p-2 text-sm dark:border-gray-600 dark:bg-gray-700 dark:text-white"
         >
           <option value="">Select Category</option>
           {categories.map((cat) => (
@@ -48,7 +48,7 @@ const TaskForm = () => {
       )}
       <button
         type="submit"
-        className="bg-blue-500 text-sm text-white text-nowrap rounded px-4 py-2 hover:bg-blue-600 transition dark:bg-blue-600 dark:hover:bg-blue-700"
+        className="text-nowrap rounded bg-blue-500 px-4 py-2 text-sm text-white transition hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700"
       >
         Add Task
       </button>
