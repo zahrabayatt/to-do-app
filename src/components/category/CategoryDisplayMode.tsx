@@ -12,8 +12,8 @@ const CategoryDisplayMode = ({ category, onEdit }: Props) => {
   const deleteCategoryWithTasks = useDeleteCategoryWithTasks();
 
   return (
-    <div className="flex items-center justify-between p-2 bg-gray-200 dark:bg-gray-800 rounded-lg shadow-sm hover:bg-gray-300 dark:hover:bg-gray-600 transition">
-      <span className="text-sm overflow-auto mr-1 text-gray-800 dark:text-gray-200">
+    <div className="flex items-center justify-between rounded-lg bg-gray-200 p-2 shadow-sm transition hover:bg-gray-300 dark:bg-gray-800 dark:hover:bg-gray-600">
+      <span className="mr-1 overflow-auto text-sm text-gray-800 dark:text-gray-200">
         {category.name}
       </span>
       <div className="flex space-x-2">

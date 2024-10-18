@@ -12,11 +12,11 @@ const TasksPage = () => {
 
   return (
     <div className="w-full md:px-5 md:py-4">
-      <div className="container mx-auto flex flex-col gap-2 h-full w-full p-4">
+      <div className="container mx-auto flex h-full w-full flex-col gap-2 p-4">
         <TaskFilter />
         <TaskList />
       </div>
-      <div className="py-1 px-4">
+      <div className="px-4 py-1">
         <TaskForm />
       </div>
     </div>

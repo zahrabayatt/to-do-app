@@ -6,7 +6,7 @@ const CategorySelector = () => {
   const categories = useCategoryStore((s) => s.categories);
 
   return (
-    <div className="flex flex-col space-y-2 h-full pr-2 mb-14 overflow-x-hidden overflow-y-auto scrollbar-light dark:scrollbar-dark">
+    <div className="scrollbar-light dark:scrollbar-dark mb-14 flex h-full flex-col space-y-2 overflow-y-auto overflow-x-hidden pr-2">
       {categories.map((cat) => (
         <NavigationLink
           key={cat.id}

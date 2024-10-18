@@ -18,7 +18,7 @@ const useDeleteCategoryWithTasks = () => {
 
       deleteCategory(categoryId);
     },
-    [clearTasksInCategory, deleteCategory, taskQuery, setCategoryId]
+    [clearTasksInCategory, deleteCategory, taskQuery, setCategoryId],
   );
 
   return deleteCategoryWithTasks;

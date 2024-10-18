@@ -10,12 +10,12 @@ const ColorModeSwitch = ({ isExtend = true }: Props) => {
   const { isDarkMode, toggleTheme } = useTheme();
 
   return (
-    <div className="flex items-center justify-center p-4 w-full max-w-md mx-auto">
+    <div className="mx-auto flex w-full max-w-md items-center justify-center p-4">
       <div
         className={cn(
-          "relative flex items-center h-12 rounded-full cursor-pointer transition-all duration-300 ease-in-out",
+          "relative flex h-12 cursor-pointer items-center rounded-full transition-all duration-300 ease-in-out",
           isDarkMode ? "bg-gray-700" : "bg-slate-50",
-          isExtend ? "w-full" : "w-20"
+          isExtend ? "w-full" : "w-20",
         )}
         onClick={toggleTheme}
       >
@@ -36,25 +36,25 @@ const ToggleIcons = ({
   <div className="flex w-full items-center justify-between">
     <div
       className={cn(
-        "flex justify-center items-center transition-all duration-300 ease-in-out",
-        isDarkMode && !isExtend ? "hidden" : "opacity-100 w-1/2",
-        !isDarkMode && !isExtend ? "w-full" : ""
+        "flex items-center justify-center transition-all duration-300 ease-in-out",
+        isDarkMode && !isExtend ? "hidden" : "w-1/2 opacity-100",
+        !isDarkMode && !isExtend ? "w-full" : "",
       )}
     >
-      <FaSun className="text-yellow-500 text-[1.5rem]" />
+      <FaSun className="text-[1.5rem] text-yellow-500" />
     </div>
 
     <div
       className={cn(
-        "flex justify-center items-center transition-all duration-300 ease-in-out",
-        !isDarkMode && !isExtend ? "hidden" : "opacity-100 w-1/2",
-        isDarkMode && !isExtend ? "w-full" : ""
+        "flex items-center justify-center transition-all duration-300 ease-in-out",
+        !isDarkMode && !isExtend ? "hidden" : "w-1/2 opacity-100",
+        isDarkMode && !isExtend ? "w-full" : "",
       )}
     >
       <FaMoon
         className={cn(
           "text-[1.5rem]",
-          isDarkMode ? "text-white" : "text-gray-700"
+          isDarkMode ? "text-white" : "text-gray-700",
         )}
       />
     </div>
@@ -64,10 +64,10 @@ const ToggleIcons = ({
 const ToggleIndicator = ({ isDarkMode }: { isDarkMode: boolean }) => (
   <div
     className={cn(
-      "w-[48%] absolute top-1 left-1 h-10 rounded-full transition-transform duration-300 ease-in-out border-2",
+      "absolute left-1 top-1 h-10 w-[48%] rounded-full border-2 transition-transform duration-300 ease-in-out",
       isDarkMode
-        ? "translate-x-full bg-transparent border-white shadow-lg"
-        : "translate-x-0 bg-transparent border-gray-500 shadow-md"
+        ? "translate-x-full border-white bg-transparent shadow-lg"
+        : "translate-x-0 border-gray-500 bg-transparent shadow-md",
     )}
   ></div>
 );

@@ -15,12 +15,12 @@ const NavigationMenuItem = ({ icon: Icon, text, to }: Prop) => {
     <Link
       to={to}
       className={cn(
-        "flex rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-base items-center gap-x-4",
-        isSelected && "bg-light-white"
+        "flex cursor-pointer items-center gap-x-4 rounded-md p-2 text-base text-gray-300 hover:bg-light-white",
+        isSelected && "bg-light-white",
       )}
     >
       {Icon && <Icon size={20} className="shrink-0" />}
-      <span className="origin-left duration-200 whitespace-nowrap overflow-hidden">
+      <span className="origin-left overflow-hidden whitespace-nowrap duration-200">
         {text}
       </span>
     </Link>

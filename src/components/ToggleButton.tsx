@@ -10,8 +10,8 @@ const ToggleButton = ({ isToggle, setToggle }: Props) => {
   return (
     <FaAngleRight
       className={cn(
-        "bg-white absolute cursor-pointer -right-3 top-8  border-dark-purple border-2 p-1 rounded-full",
-        isToggle && "rotate-180"
+        "absolute -right-3 top-8 cursor-pointer rounded-full border-2 border-dark-purple bg-white p-1",
+        isToggle && "rotate-180",
       )}
       size={30}
       onClick={() => setToggle(!isToggle)}

@@ -4,7 +4,7 @@ import logo from "../assets/logo.webp";
 
 const Logo = () => {
   return (
-    <div className="flex gap-x-4 items-center">
+    <div className="flex items-center gap-x-4">
       <Link to={"/"} className="size-8 shrink-0">
         <img
           src={logo}
@@ -15,7 +15,7 @@ const Logo = () => {
 
       <h1
         className={cn(
-          "text-white origin-left font-bold text-xl whitespace-nowrap overflow-hidden"
+          "origin-left overflow-hidden whitespace-nowrap text-xl font-bold text-white",
         )}
       >
         To Do App

@@ -24,13 +24,13 @@ const CategoryEditMode = ({ category, onRestEdit }: Props) => {
   };
 
   return (
-    <div className="flex items-center gap-x-2 p-2 bg-gray-200 dark:bg-gray-800 rounded-lg shadow-sm">
+    <div className="flex items-center gap-x-2 rounded-lg bg-gray-200 p-2 shadow-sm dark:bg-gray-800">
       <input
         type="text"
         value={newCategoryName}
         onChange={(e) => setNewCategoryName(e.target.value)}
         autoFocus
-        className="w-full bg-transparent dark:text-white text-sm outline-none overflow-scroll"
+        className="w-full overflow-scroll bg-transparent text-sm outline-none dark:text-white"
       />
       <MdDone onClick={handleSaveEdit} className="text-green-500" size={18} />
       <FaXmark onClick={handleResetEdit} className="text-red-500" size={13} />

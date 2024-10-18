@@ -14,7 +14,7 @@ const CategoryForm: React.FC = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex w-4/5 max-md:w-full p-4 max-md:flex-col mx-auto gap-x-2 max-md:gap-y-2  bg-white rounded-lg shadow-md dark:bg-gray-700"
+      className="mx-auto flex w-4/5 gap-x-2 rounded-lg bg-white p-4 shadow-md max-md:w-full max-md:flex-col max-md:gap-y-2 dark:bg-gray-700"
     >
       <input
         type="text"
@@ -22,11 +22,11 @@ const CategoryForm: React.FC = () => {
         onChange={(e) => setCategoryName(e.target.value)}
         placeholder="Category name"
         required
-        className="text-sm w-full border border-gray-300 rounded p-2 outline-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:outline-gray-500"
+        className="w-full rounded border border-gray-300 p-2 text-sm outline-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:outline-gray-500"
       />
       <button
         type="submit"
-        className="bg-blue-500 text-sm text-white text-nowrap rounded px-4 py-2 hover:bg-blue-600 transition dark:bg-blue-600 dark:hover:bg-blue-700"
+        className="text-nowrap rounded bg-blue-500 px-4 py-2 text-sm text-white transition hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700"
       >
         Add Category
       </button>

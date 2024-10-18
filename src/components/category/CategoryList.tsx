@@ -5,9 +5,9 @@ const CategoryList = () => {
   const categories = useCategoryStore((s) => s.categories);
 
   return (
-    <ul className="flex-grow overflow-y-auto h-[calc(100vh-185px)] max-md:h-[calc(100vh-198px)] w-full my-auto bg-white rounded-lg shadow-sm dark:bg-gray-700 scrollbar-light dark:scrollbar-dark">
+    <ul className="scrollbar-light dark:scrollbar-dark my-auto h-[calc(100vh-185px)] w-full flex-grow overflow-y-auto rounded-lg bg-white shadow-sm max-md:h-[calc(100vh-198px)] dark:bg-gray-700">
       {categories.length === 0 && (
-        <p className="w-full text-center pt-20 text-xl max-md:text-lg max-sm:text-base dark:text-white">
+        <p className="w-full pt-20 text-center text-xl max-md:text-lg max-sm:text-base dark:text-white">
           No Categories
         </p>
       )}
