@@ -8,13 +8,11 @@ const TaskForm = () => {
   const categoryId = useTaskQueryStore((s) => s.taskQuery.categoryId);
   const categories = useCategoryStore((s) => s.categories);
   const [taskName, setTaskName] = useState("");
-  const [newCategoryId, setNewCategoryId] = useState<string | null>(
-    categoryId ?? null,
-  );
+  const [newCategoryId, setNewCategoryId] = useState<string | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    addTask(taskName, newCategoryId);
+    addTask(taskName, categoryId ?? newCategoryId);
     setTaskName("");
     setNewCategoryId(null);
   };
