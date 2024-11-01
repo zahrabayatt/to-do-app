@@ -1,12 +1,14 @@
-import { useParams } from "react-router-dom";
+import { getRouteApi } from "@tanstack/react-router";
 import TaskFilter from "../components/task/TaskFilter";
 import TaskForm from "../components/task/TaskForm";
 import TaskList from "../components/task/TaskList";
 import useSelectCategory from "../hooks/useSelectCategory";
 import useValidateCategoryId from "../hooks/useValidateCategoryId";
 
+const route = getRouteApi("/");
+
 const TasksPage = () => {
-  const { categoryId } = useParams<{ categoryId: string | undefined }>();
+  const { categoryId } = route.useSearch();
   useValidateCategoryId(categoryId ?? null);
   useSelectCategory(categoryId ?? null);
 

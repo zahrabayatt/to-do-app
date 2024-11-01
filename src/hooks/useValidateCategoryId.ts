@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "@tanstack/react-router";
 import useCategoryStore from "../store/useCategoryStore";
 
 const useValidateCategoryId = (id: string | null) => {

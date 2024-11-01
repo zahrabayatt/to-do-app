@@ -11,8 +11,9 @@ const CategorySelector = () => {
         <NavigationLink
           key={cat.id}
           text={cat.name}
-          to={`/${cat.id}`}
+          to={"/"}
           icon={IoReorderThreeOutline}
+          search={{ categoryId: cat.id }}
         />
       ))}
     </div>
