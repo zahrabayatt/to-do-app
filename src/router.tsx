@@ -9,10 +9,10 @@ import TasksPage from "./pages/TasksPage";
 import CategoriesPage from "./pages/CategoriesPage";
 import TasksPageSearch from "./types/TasksPageSearch";
 
-// Root route that wraps everything
 const rootRoute = createRootRoute({
   component: Layout,
   errorComponent: ErrorPage,
+  notFoundComponent: ErrorPage,
 });
 
 const tasksRoute = createRoute({
@@ -32,17 +32,13 @@ const categoriesRoute = createRoute({
   component: CategoriesPage,
 });
 
-// Build the route tree
 const routeTree = rootRoute.addChildren([tasksRoute, categoriesRoute]);
 
-// Create the router instance
 const router = createRouter({
   routeTree: routeTree,
   basepath: import.meta.env.BASE_URL,
-  defaultNotFoundComponent: ErrorPage,
 });
 
-// Register the router type
 declare module "@tanstack/react-router" {
   interface Register {
     router: typeof router;
